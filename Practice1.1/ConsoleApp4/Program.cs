@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System;
-
-
-namespace Program4
+﻿namespace Program4
 {
     class Program4
     {
@@ -22,7 +18,7 @@ namespace Program4
 
         static void Main()
         {
-            Console.WriteLine("Введите начала рандомного числа");
+            Console.WriteLine("Введите минимум рандомного числа");
             int startRand = 0;
 
             try
@@ -34,7 +30,7 @@ namespace Program4
                 Console.WriteLine("Ошибка: Это не число (значение по умолчанию 0)");
             }
 
-            Console.WriteLine("Введите конец рандомного числа");
+            Console.WriteLine("Введите максимум рандомного числа");
             int endRand = 100;
 
             try

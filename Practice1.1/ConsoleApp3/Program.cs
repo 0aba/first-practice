@@ -1,20 +1,17 @@
-﻿using System.Collections.Generic;
-using System;
-
-
-namespace Program3
+﻿namespace Program3
 {
     class Program3
     {
 
         static void Main()
         {
-            List<String> words = new List<String>();
+            List<string> words = new List<string>();
+            string newWords;
 
             while (true)
             {
                 Console.WriteLine("Введите слово ( для остоновки введите пустую строку ):");
-                String newWords = Console.ReadLine();
+                newWords = Console.ReadLine();
 
                 if (newWords.Equals(""))
                 {
@@ -26,9 +23,10 @@ namespace Program3
 
             if (words.Count != 0)
             {
-                String maxlenWord = words[0];
-                String minlenWord = words[0];
-                foreach (String word in words)
+                string maxlenWord = words[0];
+                string minlenWord = words[0];
+
+                foreach (string word in words)
                 {
                     if (word.Length > maxlenWord.Length)
                     {

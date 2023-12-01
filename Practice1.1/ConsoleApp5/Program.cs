@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace Program5
+﻿namespace Program5
 {
     class Program5
     {

@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace Program2
+﻿namespace Program2
 {
     class Program2
     {
@@ -15,28 +12,26 @@ namespace Program2
 
             StreamReader readInput = new StreamReader(pathInput);
 
-            string stringNumbers = readInput.ReadLine();
+            string[] stringNumbers = readInput.ReadLine().Split(" ");
 
-            readInput.Close(); /* File нельзя использовать пока открыто соединение, 
-                                * поэтому записываю данные в переменную stringNumbers,
-                                * закрываю соединение и только потом делаю очистку File.WriteAllText
-                                */
+            readInput.Close(); 
 
             // Очистка 
             File.WriteAllText(pathInput, String.Empty);
 
-            // Запись
             String write = String.Empty;
 
-            foreach (String num in stringNumbers.Split(" "))
+            foreach (string num in stringNumbers)
             {
-                if (num != "" && int.Parse(num) % 2 != 0)
+                if (int.Parse(num) % 2 != 0)
                 {
                     write += num + " ";
                 }
             }
+            write = write.Substring(0, write.Length - 1); // удаляет лишний пробел
 
             StreamWriter writeFile = new StreamWriter(pathInput);
+
             writeFile.Write(write);
 
             writeFile.Close();

@@ -1,12 +1,8 @@
-﻿using System;
-using System.IO;
-
-
-namespace Program
+﻿namespace Program
 {
     class Program
     {
-        private static bool isLuckyTicket(ref String[] luckyStringNumbers, ref String[] ticketsStringNumbers )
+        private static bool isLuckyTicket(ref string[] luckyStringNumbers, ref string[] ticketsStringNumbers )
         {
             byte amountCoincidencesNum = 0;
 
@@ -30,27 +26,21 @@ namespace Program
             return false;
         }
 
-        private static void printLuckyUnluckyTicket(String pathInput, String pathOutput)
+        private static void printLuckyUnluckyTicket(string pathInput, string pathOutput)
         {
             StreamReader readInput = new StreamReader(pathInput);
 
-            // получаем удачные числа
-            String[] luckyNumStr = readInput.ReadLine().Split(" ");
+            string[] luckyNumStr = readInput.ReadLine().Split(" ");
+            int amountTickets = int.Parse(readInput.ReadLine());
 
-            // получаем количество билетов
-            int amountTickets;
-            
-            amountTickets = int.Parse(readInput.ReadLine());
+            // Очистка 
+            File.WriteAllText(pathOutput, string.Empty); 
 
-            // Очистка ( на случай если там мусор )
-            File.WriteAllText(pathOutput, String.Empty);
-
-            // открытие output файла
             StreamWriter outputWriter = new StreamWriter(pathOutput);
 
             for (int i = 0; i < amountTickets; i++)
             {
-                String[] ticketNumStr = readInput.ReadLine().Split(" ");
+                string[] ticketNumStr = readInput.ReadLine().Split(" ");
 
                 outputWriter.WriteLine( isLuckyTicket(ref luckyNumStr, ref ticketNumStr) ? "Lucky" : "Unlucky" );
             }
