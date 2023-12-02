@@ -20,11 +20,11 @@ namespace Program2
             return indexMin;
         }
 
-        private static int getSumBeforeIndex(ref int[] numbers, int afterBefore)
+        private static int getSumBeforeIndex(ref int[] numbers, int beforeIndex)
         {
             int result = 0;
 
-            for (int i = 0; i < afterBefore; i++)
+            for (int i = 0; i < beforeIndex; i++)
             {
                 result += numbers[i];
             }
