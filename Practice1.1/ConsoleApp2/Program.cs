@@ -2,7 +2,6 @@
 {
     class Program2
     {
-
         static void Main()
         {
             List<int> numbers = new List<int>();
@@ -41,7 +40,6 @@
                 average = sum / numbers.Count;
 
                 Console.WriteLine($"среднее = {average} \n сумм = {sum} \n произведение = {mul}");
-
             }
             else
             {

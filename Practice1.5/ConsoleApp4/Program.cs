@@ -55,7 +55,6 @@ namespace Program3
             int sumElDifferin1MaxNumber = getSumElDifferin1MaxNumber(ref numbers, indexMaxNumber);
 
             Console.WriteLine($"Результат: {sumElDifferin1MaxNumber}");
-
         }
     }
 }

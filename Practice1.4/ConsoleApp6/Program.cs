@@ -42,7 +42,6 @@ namespace Program5
             {
                 Console.WriteLine("Точка не входит в эту область");
             }
-
         }
     }
 }

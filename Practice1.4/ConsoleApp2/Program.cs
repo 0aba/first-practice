@@ -5,8 +5,6 @@ namespace Program1
 {
     class Program1
     {
-
-
         public static void Main()
         {
             Console.WriteLine("Укажите полный путь до файла c данными.\n" +
@@ -36,7 +34,6 @@ namespace Program1
             }
 
             Console.WriteLine($"Сумма положительных вечественных чисел = {sum}");
-
         }
     }
 }

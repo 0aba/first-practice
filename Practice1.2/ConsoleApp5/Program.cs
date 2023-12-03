@@ -69,12 +69,11 @@
             Console.WriteLine("Средние температуры месяцев: ");
             foreach (var month in averageTemperatureMonths)
             {
-                Console.WriteLine($"{month.Key}: {month.Value}");
+                Console.WriteLine($"{month.Key}: {string.Format("{0:N1} °C", month.Value)}" );
                 averageTemperaturesYear += month.Value;
-
             }
 
-            Console.WriteLine($"Средняя температура года: {averageTemperaturesYear / 12}");
+            Console.WriteLine(string.Format("Средняя температура года: {0:N1} °C", averageTemperaturesYear / 12));
         }
     }
 }

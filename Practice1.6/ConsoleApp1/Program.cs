@@ -4,7 +4,7 @@
     {
         private static uint getLenghtWord(string word)
         {
-            uint len = 0;
+            uint lenghtWord = 0;
 
             foreach (char chr in word) 
             {
@@ -12,20 +12,20 @@
 
                 if ((65 <= codeChar && codeChar <= 90) || (97 <= codeChar && codeChar <= 122)) // фильтер: , . ! ? и т.д.
                 {
-                    ++len;
+                    ++lenghtWord;
                 }
             }
 
-            return len;
+            return lenghtWord;
         }
 
         private static void printWordsOddLength(ref string[] words)
         {
             foreach (string word in words) 
             { 
-                uint lenWord = getLenghtWord(word);
+                uint lenghtWord = getLenghtWord(word);
 
-                if (lenWord % 2 != 0)
+                if (lenghtWord % 2 != 0)
                 {
                     Console.WriteLine(word);
                 }

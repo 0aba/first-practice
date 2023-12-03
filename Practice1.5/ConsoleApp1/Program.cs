@@ -53,9 +53,6 @@ namespace Program
 
 
             Console.WriteLine($"Результат: {mulNumbersAfter}");
-
-
-
         }
     }
 }

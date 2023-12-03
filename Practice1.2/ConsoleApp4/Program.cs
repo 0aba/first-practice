@@ -75,10 +75,10 @@
             Console.WriteLine("Отсортированный массив средних температур месяцев: ");
             foreach (float temperature in averageTemperaturesMonths)
             {
-                Console.WriteLine(temperature);
+                Console.WriteLine(string.Format("{0:N1} °C", temperature));
                 averageTemperaturesYear += temperature;
             }
-            Console.WriteLine($"Средняя температура года: {averageTemperaturesYear / averageTemperaturesMonths.Length}");
+            Console.WriteLine(string.Format("Средняя температура года: {0:N1} °C", averageTemperaturesYear / averageTemperaturesMonths.Length));
         }
     }
 }

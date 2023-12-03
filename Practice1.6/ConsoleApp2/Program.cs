@@ -4,7 +4,6 @@
     {
         public static void Main()
         {
-
             Console.WriteLine("Укажите полный путь до файла c данными.\n" +
                               @"например: C:\Users\aba\Desktop\first-practice\for-1.6-work\numsTask2.txt" +
                               "\n путь: \n");
@@ -24,7 +23,6 @@
             {
                 Console.Write($"{word} ");
             }
-
         }
     }
 }

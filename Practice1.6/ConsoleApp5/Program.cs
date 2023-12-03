@@ -4,7 +4,7 @@
     {
         private static Random _rand = new Random();
 
-        private static int[,] getMatrix1and0(int n, int m) 
+        private static int[,] getMatrixRandomFill1and0(int n, int m) 
         {
             int[,] matrix = new int[n, m];
 
@@ -43,7 +43,6 @@
                 }
             }
 
-
             matrix = newMatrix;
         }
 
@@ -55,7 +54,7 @@
             Console.Write("Ваведите M: ");
             int m = int.Parse(Console.ReadLine());
 
-            int[,] a = getMatrix1and0(n, m);
+            int[,] a = getMatrixRandomFill1and0(n, m);
 
             addСolumnMakeEvenNumber1(ref a);
 
@@ -66,9 +65,9 @@
                 {
                     Console.Write($"{a[i, j]} ");
                 }
+
                 Console.WriteLine();
             }
-
         }
     }
 }

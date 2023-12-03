@@ -76,7 +76,7 @@ namespace Program4
                                                              (indexMinElement > indexMaxElement)
                                                                      ? indexMinElement : indexMaxElement);
 
-            Console.WriteLine($"Среднее между минимальным и максимальным: {averageBetweenMinMaxElement}");
+            Console.WriteLine($"Среднее арифметическое между минимальным и максимальным: {averageBetweenMinMaxElement}");
         }
     }
 }

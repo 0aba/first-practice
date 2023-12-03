@@ -12,6 +12,7 @@
             {
                 numbers[i] = (float)_rand.NextDouble() + _rand.Next(-10, 10);
             }
+
             return numbers;
         }
 
@@ -37,7 +38,7 @@
                 }
             }
 
-            // убирает лишние нули, что поможно было использовать foreach вместо  for (int i = 0;i < indexAddNegative/indexAddNegative; ++i)
+            // убирает лишние нули, чтобы использовать foreach вместо for (int i = 0;i < indexAddNegative/indexAddNegative; ++i)
             Array.Resize(ref negative, indexAddNegative);
             Array.Resize(ref positive, indexAddPositive);
         }

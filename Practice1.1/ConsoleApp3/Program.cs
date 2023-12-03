@@ -2,7 +2,6 @@
 {
     class Program3
     {
-
         static void Main()
         {
             List<string> words = new List<string>();
