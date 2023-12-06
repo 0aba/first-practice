@@ -15,7 +15,7 @@
 
         public string text { get; set; }
 
-        public string timeEnd { get; set; } // DateTime в string dd/MM/yyyy-HH:mm:ss
+        public string timeEnd { get; set; } // DateTime в виде string dd/MM/yyyy-HH:mm:ss
 
         public bool complited { get; set; }
     }

@@ -1,0 +1,1 @@
+{"urlWeatherAPI":"https://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&lang=ru&appid={2}","urlGeocodingAPI":"http://api.openweathermap.org/geo/1.0/direct?q={0}&appid={1}","defaultCity":"kargasok","keyAPI":"d1ca9a8ad062b0ea0b40a83035880bb8"}

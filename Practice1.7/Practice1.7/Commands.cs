@@ -149,14 +149,15 @@ namespace TodoAPP
         private void helpСommand(string command)
         {
             string commandInfo = _utils.commandsInfo.GetValueOrDefault(command);
+
             Console.WriteLine("Дополнительная ифнормация: \n" +
                               "NONE - это специальное слово, которое означает оставить без изменений \n" +
-                              "(см. в help-command в каких аргументах команды можно использовать)" +
+                              "(см. в help-command в каких аргументах команды можно использовать) \n" +
                               "\"(...)\" - это означает, что информация должна быть записана в этих скобках \" \" даже если это одно слово \n" +
                               "(см. в help-command в каких аргументах команды нужно использовать) \n");
             Console.WriteLine("Синтаксис команды: ");
 
-            Console.WriteLine(commandInfo == null ? "Ошибка такой команды нету" : commandInfo);
+            Console.WriteLine(commandInfo is null ? "Ошибка такой команды нету" : commandInfo);
         }
 
         private void exit()
@@ -290,8 +291,6 @@ namespace TodoAPP
         private void aboutNote(string title)
         {
             int index = _utils.getIndexTask(title);
-
-            int wight = 100;
 
             if (index == -1)
             {

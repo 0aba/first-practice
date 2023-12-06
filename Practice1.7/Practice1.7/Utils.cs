@@ -35,7 +35,7 @@ namespace TodoAPP
         {
             pathJSONData = Directory.GetCurrentDirectory() + "/DataAPP.json";
 
-            while (!File.Exists(pathJSONData))
+            if (!File.Exists(pathJSONData))
             {
                 File.Create(pathJSONData).Close(); // Close(), чтобы небыло ошибки несуществующий файл.
             }
@@ -44,7 +44,7 @@ namespace TodoAPP
 
             todoTasks = JsonConvert.DeserializeObject<List<TodoTask>>(dataJSON);
 
-            if (todoTasks == null)
+            if (todoTasks is null)
             {
                 todoTasks = new List<TodoTask>();
             }
@@ -119,4 +119,3 @@ namespace TodoAPP
         }
     }
 }
-
