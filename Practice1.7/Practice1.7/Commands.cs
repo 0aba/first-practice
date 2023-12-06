@@ -85,6 +85,10 @@ namespace TodoAPP
                     printOverdueNotes();
                     break;
 
+                case "incompleted-notes":
+                    printInCompletedNotes();
+                    break;
+
                 case "about-note":
                     if (commandData.Count != 2)
                     {
@@ -138,6 +142,7 @@ namespace TodoAPP
                               "'notes': вывести все заметки \n\n" +
                               "'completed-notes': вывести завершенные заметки \n\n" +
                               "'overdue-notes':  вывести просроченные заметки \n\n" +
+                              "'incompleted-notes': вывести не завершенные заметки \n\n" +
                               "'about-note': подробнее о заметке \n\n" +
                               "'notes-today': заметки на сегодня \n\n" +
                                "'notes-tomorrow': заметки на завтра \n\n" +
@@ -279,7 +284,24 @@ namespace TodoAPP
             {
                 DateTime taskData = DateTime.ParseExact(task.timeEnd, "dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
 
-                if (timeNow < taskData)
+                if (timeNow > taskData && task.complited != true)
+                {
+                    _utils.printNoteTitle(task);
+
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        private void printInCompletedNotes()
+        {
+            DateTime timeNow = DateTime.Now;
+
+            foreach (TodoTask task in _utils.todoTasks)
+            {
+                DateTime taskData = DateTime.ParseExact(task.timeEnd, "dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
+
+                if (timeNow < taskData && task.complited != true)
                 {
                     _utils.printNoteTitle(task);
 
@@ -333,7 +355,7 @@ namespace TodoAPP
             {
                 DateTime taskData = DateTime.ParseExact(task.timeEnd, "dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
 
-                if (timeNow.Year == taskData.Year && timeNow.Month == taskData.Month && timeNow.Day == taskData.Day )
+                if (timeNow.Year == taskData.Year && timeNow.Month == taskData.Month && timeNow.Day == taskData.Day && task.complited != true)
                 {
                    _utils.printNoteTitle(task);
 
@@ -352,7 +374,7 @@ namespace TodoAPP
             {
                 DateTime taskData = DateTime.ParseExact(task.timeEnd, "dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
 
-                if (timeNow.Year == taskData.Year && timeNow.Month == taskData.Month && timeNow.Day == taskData.Day)
+                if (timeNow.Year == taskData.Year && timeNow.Month == taskData.Month && timeNow.Day == taskData.Day && task.complited != true)
                 {
                     _utils.printNoteTitle(task);
 
@@ -371,7 +393,7 @@ namespace TodoAPP
             {
                 DateTime taskData = DateTime.ParseExact(task.timeEnd, "dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
 
-                if (timeNow < taskData && taskData <= timeAfter7Days)
+                if (timeNow < taskData && taskData <= timeAfter7Days && task.complited != true)
                 {
                     _utils.printNoteTitle(task);
 
