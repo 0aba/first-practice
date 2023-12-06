@@ -1,37 +1,42 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http.Headers;
 
 namespace WeatherAPP
 {
     internal class Utils
     {
-        public string pathToSettingsJSON;
+        public const int EXIT_COMMAND = 0;
+
+        private const int TIMEOUT_API = 504;
+
+        private string _pathToSettingsJSON;
 
         public Settings settings;
 
-        public HttpClient _client = new HttpClient();
+        private HttpClient _client = new HttpClient();
 
         public Dictionary<string, string> commandsInfo = new Dictionary<string, string>()
         {
-            {"'help'", "help"},
-            {"'set-default-city'", "set-default-city (город)"},
-            {"'help-command'",""},
-            {"'get-city-weather'", "get-city-weather (город)"},
-            {"'exit'", "exit"},
+            {"help", "help"},
+            {"set-default-city", "set-default-city (город)"},
+            {"help-command","help-command"},
+            {"get-city-weather", "get-city-weather (город)"},
+            {"exit", "exit"},
         };
 
         public Utils()
         {
-            pathToSettingsJSON = Directory.GetCurrentDirectory() + "/SettingsJSON.json";
+            _pathToSettingsJSON = Directory.GetCurrentDirectory() + "/SettingsJSON.json";
 
-            if (!File.Exists(pathToSettingsJSON))
+            if (!File.Exists(_pathToSettingsJSON))
             {
-                File.Create(pathToSettingsJSON).Close(); // Close(), чтобы небыло ошибки несуществующий файл.
+                File.Create(_pathToSettingsJSON).Close(); // Close(), чтобы небыло ошибки несуществующий файл.
             }
 
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            string dataJSON = File.ReadAllText(pathToSettingsJSON);
+            string dataJSON = File.ReadAllText(_pathToSettingsJSON);
 
             settings = JsonConvert.DeserializeObject<Settings>(dataJSON);
 
@@ -65,9 +70,20 @@ namespace WeatherAPP
         }
         public GeoResponse[] getСoordinates(string city)
         {
-            var response = _client.GetAsync(string.Format(settings.urlGeocodingAPI, city, settings.keyAPI)).Result;
+            HttpResponseMessage response;
 
-            string responseString = response.Content.ReadAsStringAsync().Result;
+            string responseString = string.Empty;
+
+            try 
+            {
+                response = _client.GetAsync(string.Format(settings.urlGeocodingAPI, city, settings.keyAPI)).Result;
+                responseString = response.Content.ReadAsStringAsync().Result;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Ошибка api не отвечает");
+                Environment.Exit(TIMEOUT_API);
+            }
 
             GeoResponse[] coordinates = JsonConvert.DeserializeObject<GeoResponse[]>(responseString);
 
@@ -76,9 +92,20 @@ namespace WeatherAPP
 
         public WeatherResponse getCityWeather(float lat, float lon)
         {
-            var response = _client.GetAsync(string.Format(settings.urlWeatherAPI, lat, lon, settings.keyAPI)).Result;
+            HttpResponseMessage response;
 
-            string responseString = response.Content.ReadAsStringAsync().Result;
+            string responseString = string.Empty;
+
+            try 
+            {
+                response = _client.GetAsync(string.Format(settings.urlWeatherAPI, lat, lon, settings.keyAPI)).Result;
+                responseString = response.Content.ReadAsStringAsync().Result;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Ошибка api не отвечает");
+                Environment.Exit(TIMEOUT_API);
+            }
 
             WeatherResponse weather = JsonConvert.DeserializeObject<WeatherResponse>(responseString);
 
@@ -102,7 +129,7 @@ namespace WeatherAPP
         {
             string serializedTodoTasks = JsonConvert.SerializeObject(settings);
 
-            File.WriteAllText(pathToSettingsJSON, serializedTodoTasks);
+            File.WriteAllText(_pathToSettingsJSON, serializedTodoTasks);
         }
     }
 }

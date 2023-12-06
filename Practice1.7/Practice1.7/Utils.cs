@@ -10,7 +10,9 @@ namespace TodoAPP
 
         public List<TodoTask> todoTasks; 
 
-        const int NOT_DEFIND = -1;
+        private const int NOT_DEFIND = -1;
+
+        public const int EXIT_COMMAND = 0;
 
         public Dictionary<string, string> commandsInfo = new Dictionary<string, string>()
         {

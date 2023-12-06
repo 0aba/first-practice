@@ -15,7 +15,7 @@
             {
                 Console.Write(">> ");
 
-                command = Console.ReadLine();
+                command = Console.ReadLine().Trim();
 
                 program._commands.runСommand(command);
             }

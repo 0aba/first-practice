@@ -6,7 +6,6 @@ namespace TodoAPP
     internal class Сommands
     {
         private Utils _utils = new Utils();
-        const int EXIT_COMMAND = 0;
 
         public void runСommand(string command)
         {
@@ -167,7 +166,7 @@ namespace TodoAPP
 
         private void exit()
         {
-            Environment.Exit(EXIT_COMMAND);
+            Environment.Exit(Utils.EXIT_COMMAND);
         }
 
         private void addNote(string title, string text, string timeEnd)

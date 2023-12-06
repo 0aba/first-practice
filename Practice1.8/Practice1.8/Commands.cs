@@ -4,8 +4,6 @@
     {
         private Utils _utils = new Utils();
 
-        const int EXIT_COMMAND = 0;
-
         public void runСommand(string command)
         {
             Console.Clear();
@@ -71,7 +69,7 @@
 
         private void exit()
         {
-            Environment.Exit(EXIT_COMMAND);
+            Environment.Exit(Utils.EXIT_COMMAND);
         }
 
         private void helpСommand(string command)
