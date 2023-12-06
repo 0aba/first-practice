@@ -1,5 +1,5 @@
-﻿
-using System.Globalization;
+﻿using System.Globalization;
+
 
 namespace Program4
 {
@@ -43,7 +43,6 @@ namespace Program4
             {
                 verage += numbers[i];
             }
-
 
             return verage / (endIndex - startIndex - 1);
         }

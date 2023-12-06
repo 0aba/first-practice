@@ -24,7 +24,6 @@
             return result;
         }
 
-
         public static void Main()
         {
             Console.WriteLine("Укажите полный путь до файла c данными.\n" +

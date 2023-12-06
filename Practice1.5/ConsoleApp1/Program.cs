@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 
+
 namespace Program
 {
     class Program
@@ -50,7 +51,6 @@ namespace Program
             int indexMinNumber = getIndexMinElement(ref numbers);
 
             int mulNumbersAfter = getMulNumbersAfter(ref numbers, indexMinNumber);
-
 
             Console.WriteLine($"Результат: {mulNumbersAfter}");
         }
