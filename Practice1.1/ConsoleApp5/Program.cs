@@ -5,7 +5,7 @@
         static void Main()
         {
             Console.WriteLine("Введите текст ( cлова разделяется одним пробелом ): ");
-            String textUser = Console.ReadLine();
+            string textUser = Console.ReadLine();
             int countWord = 0;
 
             if (!textUser.Equals(string.Empty))
