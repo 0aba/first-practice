@@ -12,7 +12,7 @@
 
             StreamReader readInput = new StreamReader(pathInput);
 
-            string[] stringNumbers = readInput.ReadLine().Split(" ");
+            string[] stringNumbers = readInput.ReadLine().Trim().Split(" ");
 
             readInput.Close();
 
@@ -20,11 +20,6 @@
 
             for (int i = 0; i < stringNumbers.Length; i++)
             {
-                if (i + 1 < stringNumbers.Length && stringNumbers[i + 1].Equals(""))
-                {
-                    break;
-                }
-
                 if ( i + 1 < stringNumbers.Length && stringNumbers[i].Equals(stringNumbers[i + 1]))
                 {
                     ++count;

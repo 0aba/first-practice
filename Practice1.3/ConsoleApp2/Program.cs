@@ -5,30 +5,30 @@
         public static void Main()
         {
             Console.WriteLine("Укажите полный путь до файла c данными.\n" +
-                              @"например: C:\\Users\aba\Desktop\first-practice\for-1.3-work\nums.txt " +
+                              @"например: C:\Users\aba\Desktop\first-practice\for-1.3-work\nums.txt" +
                               "\n путь: \n");
 
-            String pathInput = Console.ReadLine();
+            string pathInput = Console.ReadLine();
 
             StreamReader readInput = new StreamReader(pathInput);
 
-            string[] stringNumbers = readInput.ReadLine().Split(" ");
+            string[] stringNumbers = readInput.ReadLine().Trim().Split(" ");
 
             readInput.Close(); 
 
             // Очистка 
-            File.WriteAllText(pathInput, String.Empty);
+            File.WriteAllText(pathInput, string.Empty);
 
-            String write = String.Empty;
+            string write = string.Empty;
 
             foreach (string num in stringNumbers)
             {
                 if (int.Parse(num) % 2 != 0)
                 {
-                    write += num + " ";
+                    write += $"{num} ";
                 }
             }
-            write = write.Substring(0, write.Length - 1); // удаляет лишний пробел
+            write = write.Substring(0, write.Length - 1); // удаляет лишний пробел еще можно воспользоваться Trim()
 
             StreamWriter writeFile = new StreamWriter(pathInput);
 

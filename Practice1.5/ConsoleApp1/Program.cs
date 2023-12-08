@@ -42,7 +42,8 @@ namespace Program
 
             StreamReader input = new StreamReader(pathInput);
 
-            int[] numbers = input.ReadLine().Split(" ")
+            int[] numbers = input.ReadLine().Trim()
+                                            .Split(" ")
                                             .Select(stringNumber => int.Parse(stringNumber, CultureInfo.InvariantCulture))
                                             .ToArray();
 

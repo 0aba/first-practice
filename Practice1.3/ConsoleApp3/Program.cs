@@ -27,16 +27,16 @@
         public static void Main()
         {
             Console.WriteLine("Укажите полный путь до файла c данными.\n" +
-                              @"например: C:\\Users\aba\Desktop\first-practice\for-1.3-work\input3.txt " +
+                              @"например: C:\Users\aba\Desktop\first-practice\for-1.3-work\input3.txt" +
                               "\n путь: \n");
 
-            String pathInput = Console.ReadLine();
+            string pathInput = Console.ReadLine();
 
             int[] numbersInput;
 
             StreamReader readInput = new StreamReader(pathInput);
 
-            String[] input = readInput.ReadLine().Split(" ");
+            string[] input = readInput.ReadLine().Trim().Split(" ");
 
             readInput.Close();
 

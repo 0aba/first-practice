@@ -30,8 +30,9 @@
         {
             StreamReader readInput = new StreamReader(pathInput);
 
-            string[] luckyNumStr = readInput.ReadLine().Split(" ");
-            int amountTickets = int.Parse(readInput.ReadLine());
+            string[] luckyNumStr = readInput.ReadLine().Trim().Split(" ");
+
+            int amountTickets = int.Parse(readInput.ReadLine().Trim());
 
             // Очистка 
             File.WriteAllText(pathOutput, string.Empty); 
@@ -40,7 +41,7 @@
 
             for (int i = 0; i < amountTickets; i++)
             {
-                string[] ticketNumStr = readInput.ReadLine().Split(" ");
+                string[] ticketNumStr = readInput.ReadLine().Trim().Split(" ");
 
                 outputWriter.WriteLine( isLuckyTicket(ref luckyNumStr, ref ticketNumStr) ? "Lucky" : "Unlucky" );
             }
@@ -52,18 +53,18 @@
         public static void Main()
         {
             Console.WriteLine("Укажите полный путь до файла c данными.\n" + 
-                             @"например: C:\\Users\aba\Desktop\first-practice\for-1.3-work\input.txt" +
+                             @"например: C:\Users\aba\Desktop\first-practice\for-1.3-work\input.txt" +
                              "\n путь: \n");
 
-            String pathInput = Console.ReadLine();
+            string pathInput = Console.ReadLine();
 
             Console.WriteLine("\n\n");
 
             Console.WriteLine("Укажите полный путь до файла для записи результата.\n" +
-                             @"например: C:\\Users\aba\Desktop\first-practice\for-1.3-work\output.txt" +
+                             @"например: C:\Users\aba\Desktop\first-practice\for-1.3-work\output.txt" +
                              "\n путь: \n");
 
-            String pathOutput = Console.ReadLine();
+            string pathOutput = Console.ReadLine();
 
             printLuckyUnluckyTicket(pathInput, pathOutput);
         }

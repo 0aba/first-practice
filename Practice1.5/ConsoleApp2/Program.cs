@@ -32,16 +32,16 @@ namespace Program1
             StreamReader input = new StreamReader(pathInput);
 
             float[] numbers = input.ReadLine().Split(";")
-                .Select(stringNumber => float.Parse(stringNumber, CultureInfo.InvariantCulture))
-                .ToArray();
+                                              .Select(stringNumber => float.Parse(stringNumber, CultureInfo.InvariantCulture))
+                                              .ToArray();
 
             input.Close();
 
-            File.WriteAllText(pathInput, String.Empty);
+            File.WriteAllText(pathInput, string.Empty);
 
             sortFloatArray(ref numbers);
 
-            string write = String.Empty;
+            string write = string.Empty;
 
             for (int i = 0; i < numbers.Length; i++)
             {

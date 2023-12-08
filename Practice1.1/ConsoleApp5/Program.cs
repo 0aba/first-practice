@@ -8,7 +8,7 @@
             String textUser = Console.ReadLine();
             int countWord = 0;
 
-            if (!textUser.Equals(""))
+            if (!textUser.Equals(string.Empty))
             {
                 textUser += " ";
                 foreach (char chr in textUser)

@@ -45,8 +45,8 @@
 
         public static void Main()
         {
-            float[] positive = { }; // чтобы можно было передать в  функцию = { }
-            float[] negative = { }; // чтобы можно было передать в  функцию = { }
+            float[] positive = { }; // чтобы можно было передать в функцию: = { }
+            float[] negative = { }; // чтобы можно было передать в функцию: = { }
 
             float[] floatArr = getRandomFloatArr();
 

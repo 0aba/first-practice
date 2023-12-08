@@ -12,7 +12,7 @@
                 Console.WriteLine("Введите слово ( для остоновки введите пустую строку ):");
                 newWords = Console.ReadLine();
 
-                if (newWords.Equals(""))
+                if (newWords.Equals(string.Empty))
                 {
                     break;
                 }

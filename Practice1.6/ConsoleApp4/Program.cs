@@ -6,7 +6,7 @@
         {
             Console.Write("Введите положительное число, которое будет делимым: ");
             int divisibleUser = int.Parse(Console.ReadLine());
-            int divisorUser = 1;
+            int divisorUser;
 
             int sum = 0;
 

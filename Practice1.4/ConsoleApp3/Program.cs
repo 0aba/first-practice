@@ -22,7 +22,7 @@ namespace Program2
             int minNum = int.Parse(stringNumbers[0]);
             int maxNum = int.Parse(stringNumbers[0]);
 
-            if (maxNum != 0) // первое число не ноль
+            if (maxNum != 0)
             {
                 foreach (string stringNumber in stringNumbers)
                 {

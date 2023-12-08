@@ -10,12 +10,7 @@
 
             string pathInput = Console.ReadLine();
 
-            StreamReader input = new StreamReader(pathInput);
-
-            // "\n" - новая строка, а "\r" символ возрата каретки и новый строки ( мешает коректному выводу текста )
-            string[] words = input.ReadToEnd().Replace("\r", "").Split("\n");
-
-            input.Close();
+            string[] words = File.ReadAllLines(pathInput);
 
             Console.WriteLine("Слова в одну строку: ");
 
